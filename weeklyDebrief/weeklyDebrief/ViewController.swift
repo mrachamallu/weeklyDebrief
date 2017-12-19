@@ -1,14 +1,14 @@
 //
-//  FirstViewController.swift
+//  ViewController.swift
 //  weeklyDebrief
 //
-//  Created by Meera Rachamallu on 12/17/17.
+//  Created by Meera Rachamallu on 12/18/17.
 //  Copyright © 2017 meera. All rights reserved.
 //
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
