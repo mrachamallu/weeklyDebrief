@@ -10,7 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class SubjectCollectionViewController: UICollectionViewController {
+class SubjectCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     private var subjectSet: [Subject] = [ Subject(name: "politics", nameLabel: "politics"),
                                     Subject(name: "business", nameLabel: "business"),
@@ -61,6 +61,20 @@ class SubjectCollectionViewController: UICollectionViewController {
        // cell.backgroundView = (icon.isFeatured) ? UIImageView(image: UIImage(named: "feature-bg")) : nil
     
         return cell
+    }
+    
+    //automatic resizing of cells
+    func collectionView(_ collectionView: UICollectionView, layout
+        collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath:
+        IndexPath) -> CGSize {
+        let sideSize = (traitCollection.horizontalSizeClass == .compact &&
+            traitCollection.verticalSizeClass == .regular) ? 372.0 : 400.0
+        return CGSize(width: sideSize, height: sideSize)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator:
+        UIViewControllerTransitionCoordinator) {
+        collectionView?.reloadData()
     }
 
     // MARK: UICollectionViewDelegate
